@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # 0_add.py
-# Jeremy Kawino
+# Author: Jeremy Kawino
 # Addition of two integers
 
 if __name__ == "__main__":
