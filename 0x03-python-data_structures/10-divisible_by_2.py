@@ -13,4 +13,4 @@ def divisible_by_2(my_list=[]):
         else:
             multiples.append(False)
 
-    print(multiples)
+    return multiples
