@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # 9-max_integer.py
-# Brennan D Baraban <375@holbertonschool.com>
+# Author: Jeremy
 
 
 def max_integer(my_list=[]):
@@ -8,9 +8,8 @@ def max_integer(my_list=[]):
     if len(my_list) == 0:
         return (None)
 
-    big = my_list[0]
-    for i in range(len(my_list)):
-        if my_list[i] > big:
-            big = my_list[i]
-
-    return (big)
+    max_number = my_list[0]
+    for a in my_list:
+        if a > max_number:
+            max_number = a
+    return max_number
