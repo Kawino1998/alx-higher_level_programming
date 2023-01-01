@@ -2,7 +2,7 @@
 #Author: Jeremy
 #Prints and returs no. of elements in a list
 
-def safe_print_list(my_list, x):
+def safe_print_list(my_list=[], x=0):
     i = 0
     while i != x:
         try:
