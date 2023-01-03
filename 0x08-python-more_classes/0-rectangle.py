@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-#Author: Jeremy
-#provides a simple Rectangle class.
+"""Defines a Rectangle class."""
+
 
 class Rectangle:
-    """A simple Rectangle class"""
+    """Represent a rectangle."""
     pass
