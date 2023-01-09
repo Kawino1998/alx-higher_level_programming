@@ -4,6 +4,7 @@
 module with class BaseGeometry
 ===================================
 """
+
 class BaseGeometry:
     """This is a empty class"""
     pass
