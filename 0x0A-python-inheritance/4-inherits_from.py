@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 ================================
-Whether an object is instance of a class
+module with method is_kind_of_class
 ================================
 """
 
