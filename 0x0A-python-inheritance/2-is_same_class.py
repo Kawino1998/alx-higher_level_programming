@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-#Author: Jeremy
 """
+Author: Jeremy
 ================================
 module with method is_same_class
 ================================
