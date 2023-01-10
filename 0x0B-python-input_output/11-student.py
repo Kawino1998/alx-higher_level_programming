@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-"""Student
+""" Student class module
 """
 
 
 class Student:
-    """Contains student data
+    """ Student class
     """
 
     def __init__(self, first_name, last_name, age):
@@ -13,7 +13,5 @@ class Student:
         self.age = age
 
     def to_json(self):
-        """Retrieves dictionary of Student
-        """
-
+        """ Returns a dictionary representation of a Student instance."""
         return self.__dict__
