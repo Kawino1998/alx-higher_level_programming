@@ -1,9 +1,8 @@
 #!/usr/bin/python3
+#Author: Jeremy Kawino
+#File: 4-from_json_string.py
+"""Define object to JSON string"""
 import json
-"""
-from_json_string function module.
-Define from_json_string function.
-"""
 
 
 def from_json_string(my_str):
