@@ -1,7 +1,9 @@
 #!/usr/bin/python3
+# File: 3-to_json_string.py
+# Author: Jeremy Kawino
+
 import json
 """
-Module json invoked
 to_json_string function module.
 Define to_json_string function.
 """
