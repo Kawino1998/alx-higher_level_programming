@@ -1,12 +1,8 @@
 #!/usr/bin/python3
 # File: 3-to_json_string.py
 # Author: Jeremy Kawino
-
+"""Defines a JSON-to-object function."""
 import json
-"""
-to_json_string function module.
-Define to_json_string function.
-"""
 
 
 def to_json_string(my_obj):
