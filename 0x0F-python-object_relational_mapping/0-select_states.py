@@ -1,4 +1,3 @@
-
 #!/usr/bin/python3
 """
 This script lists all states from the
