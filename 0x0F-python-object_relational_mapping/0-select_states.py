@@ -14,3 +14,4 @@ c.execute('SELECT * FROM persons')
 rows = c.fetchall()
 for row in rows:
     print(row)
+
