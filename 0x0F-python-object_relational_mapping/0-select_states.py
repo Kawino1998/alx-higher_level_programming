@@ -16,7 +16,7 @@ if __name__ == '__main__':
             user=sys.argv[1], 
             passwd=sys.argv[2], db=sys.argv[3])
     c = conn.cursor()
-    c.execute('SELECT * FROM persons')
+    c.execute('SELECT * FROM persons ORDER BY id')
     rows = c.fetchall()
     for row in rows:
         print(row)
