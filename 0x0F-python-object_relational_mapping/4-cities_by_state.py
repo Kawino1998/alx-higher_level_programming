@@ -27,7 +27,7 @@ if __name__ == '__main__':
         ON
             cities.state_id = states.id
         ORDER BY
-            id ASC
+            cities.id ASC
     """)
 
     rows = cur.fetchall()
