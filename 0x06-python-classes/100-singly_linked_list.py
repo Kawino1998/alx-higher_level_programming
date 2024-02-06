@@ -1,118 +1,110 @@
 #!/usr/bin/python3
+"""Defines the classes Node and SinglyLinkedList"""
 
 
 class Node:
     """
-    Node class for a singly linked list
+    Class that defines properties Node.
+
+    Attributes:
+        data: data field of node.
     """
     def __init__(self, data, next_node=None):
+        """Creates new instances of node.
+
+        Args:
+            __data : data field of node.
         """
-        initialization called when instance of class created
-        """
-        if self.__validate_data(data):
-            self.__data = data
-        if self.__validate_node(next_node):
-            self.__next_node = next_node
+        self.data = data
+        self.next_node = next_node
 
     @property
     def data(self):
-        """
-        get the data attribute
+        """Retrieves the data field instance.
+
+        Returns: the data field of a node.
         """
         return self.__data
 
     @data.setter
     def data(self, value):
+        """Propery setter for data.
+
+        Args:
+            value (int): data field of a node.
+
+        Raises:
+            TypeError: data must be an integer
         """
-        set the data attribute
-        """
-        if self.__validate_data(value):
-            self.__data = value
+        if not isinstance(value, int):
+            raise TypeError("data must be an integer")
+        self.__data = value
 
     @property
     def next_node(self):
-        """
-        get the node attribute
+        """Retrives the next_node instance.
+
+        Returns: The next_node instance.
         """
         return self.__next_node
 
     @next_node.setter
     def next_node(self, value):
-        """
-        set the node attribute
-        """
-        if self.__validate_node(value):
-            self.__next_node = value
+        """Property setter for Node.
 
-    def __validate_data(self, data):
-        """
-        validates the data, checking its type
-        Returns true or false if valid or not respectively
-        """
-        if isinstance(data, int):
-            return True
-        return False
+        Args:
+            value (None): next node of a Node.
 
-    def __validate_node(self, node):
+        Raises:
+            TypeError: next_node must be a Node object .
         """
-        validates the node, checking it's a node object
-        Returns true or false if valid or not respectively
-        """
-        if isinstance(node, Node) or node is None:
-            return True
-        return False
+        if value is not None and not isinstance(value, Node):
+            raise TypeError("next_node must be a Node object")
+        self.__next_node = value
 
 
 class SinglyLinkedList:
     """
-    contains nodes for a singly linked list and methods for ->
-    insertion
+    Class that defines properties of SinglyLinkedList.
+
+    Attributes:
+        head: head of the SinglyLinkedList.
     """
     def __init__(self):
-        """
-        initialization called when instance of class created
+        """Creates new instances of SinglyLinkedList .
+
+        Args:
+            __head : head of the SinglyLinkedList .
         """
         self.__head = None
 
     def __str__(self):
+        """Represents the class objects as a string.
+
+        Returns: The class object represented as a string.
         """
-        used by print to print linked list
-        """
-        tmp = self.__head
-        string = ""
-        while tmp is not None:
-            string += str(tmp.data)
-            tmp = tmp.next_node
-            if tmp is not None:
-                string += '\n'
-        return string
+        temp_var = self.__head
+        print_node = []
+        while temp_var:
+            print_node.sort()
+            print_node.append(str(temp_var.data))
+            temp_var = temp_var.next_node
+
+        print_node.sort(key=int)
+        return ("\n".join(print_node))
 
     def sorted_insert(self, value):
-        """
-        inserts a new Node into the correct sorted position
-                                            (based on data)
-        """
-        tmp = self.__head
-        if tmp is None:
-            self.__head = Node(value)
-            return
+        """Inserts a new node at a given position.
 
-        prev = None
-        while tmp is not None:
-            if (tmp.next_node is None or tmp.next_node.data >= value):
-                if (tmp.data >= value):
-                    next_n = tmp
-                    tmp = Node(value)
-                    tmp.next_node = next_n
-                    if prev is not None:
-                        prev.next_node = tmp
-                    else:
-                        self.__head = tmp
-                else:
-                    next_n = tmp.next_node
-                    tmp.next_node = Node(value)
-                    tmp.next_node.next_node = next_n
-                return
-
-            prev = tmp
-            tmp = tmp.next_node
+        Args:
+            value: value.
+        """
+        if self.__head is None:
+            new_node = Node(value)
+            new_node.next_node = self.__head
+            self.__head = new_node
+        else:
+            new_node = Node(value)
+            new_node.data = value
+            new_node.next_node = self.__head
+            self.__head = new_node
