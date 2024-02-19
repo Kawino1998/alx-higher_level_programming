@@ -1,31 +1,74 @@
+# The ``7-base_geometry.py`` module
 ============================================
 How to use 7-base_geometry.py
 ============================================
 
-This library is very simple, since it only has one function called
- ''integer_validator()''.
+This library has a function ``integer_validator()``
 
-Numbers:
-========
-''integer_validator()'' returns True if a num is integer.
-:: with positives integers
-   >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
-   >>> bg = BaseGeometry()
+``integer_validator`` validates the integer variable value.
 
-:: with positive integer
-   >>> bg.integer_validator("my_int", 12)
+Importing the function:
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
-:: with negative integer
-   >>> bg.integer_validator("number", -12)
-   Traceback (most recent call last):
-   ValueError: number must be greater than 0
+Test if area is not implemented.
+    >>> bg = BaseGeometry()
+    >>> bg.area()
+    Traceback (most recent call last):
+    	...
+    Exception: area() is not implemented
 
-:: with 3 arguments
-   >>> bg.integer_validator("numbers", 0, 1)
-   Traceback (most recent call last):
-   TypeError: integer_validator() takes 3 positional arguments but 4 were given
+Test for passing a non-integer argument.
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name", "John")
+    Traceback (most recent call last):
+    	...
+    TypeError: name must be an integer
 
-:: with infinite integer
-   >>> bg.integer_validator("infnumber", int('inf'))
-   Traceback (most recent call last):
-   ValueError: invalid literal for int() with base 10: 'inf'
+Test for passing a negative value.
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name", -5)
+    Traceback (most recent call last):
+    	...
+    ValueError: name must be greater than 0
+
+Test for passing a 0 value.
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name", 0)
+    Traceback (most recent call last):
+    	...
+    ValueError: name must be greater than 0
+
+Test for passing a positive value.
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name", 5)
+
+Test for passing one argument to integer_validator.
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name")
+    Traceback (most recent call last):
+    	...
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+Test for passing more than two arguments to integer_validator.
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name", 12, 13)
+    Traceback (most recent call last):
+        ...
+    TypeError: integer_validator() takes 3 positional arguments but 4 were given
+
+Test for passing no arguments to integer_validator.
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator()
+    Traceback (most recent call last):
+        ...
+    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+Test for passing a boolean value.
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name", True)
+
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name", False)
+    Traceback (most recent call last):
+    	...
+    ValueError: name must be greater than 0

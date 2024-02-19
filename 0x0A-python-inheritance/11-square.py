@@ -1,36 +1,44 @@
 #!/usr/bin/python3
+"""Defines a class Square based on 9-rectangle.py.
+
+Attributes:
+    width (int): width of the rectangle.
+    height (int): height of the rectangle.
+"""
 
 
-class BaseGeometry:
-    def area(self):
-        raise Exception("area() is not implemented")
-
-    def integer_validator(self, name, value):
-        if type(value) is not int:
-            raise TypeError("{} must be an integer".format(name))
-        if value <= 0:
-            raise ValueError("{} must be greater than 0".format(name))
-
-
-class Rectangle(BaseGeometry):
-    def __init__(self, width, height):
-        self.integer_validator("width", width)
-        self.integer_validator("height", height)
-        self.__width = width
-        self.__height = height
-
-    def __str__(self):
-        return "[Rectangle] {:d}/{:d}".format(self.__width, self.__height)
-
-    def area(self):
-        return self.__height * self.__width
+Rectangle = __import__('9-rectangle').Rectangle
 
 
 class Square(Rectangle):
+    """Defines a class Square.
+
+    Args:
+        Rectangle (Rectangle): rectangle
+    """
+
     def __init__(self, size):
+        """Creates new instances of class Square.
+
+        Args:
+            size (int): size of 1 side of square.
+        """
         self.integer_validator("size", size)
         self.__size = size
-        super().__init__(self.__size, self.__size)
+        super().__init__(size, size)
 
     def __str__(self):
-        return "[Square] {:d}/{:d}".format(self.__size, self.__size)
+        """Returns a string representation of the square.
+
+        Returns:
+            str: square.
+        """
+        return ("[Square] {}/{}".format(self.__size, self.__size))
+
+    def area(self):
+        """Calculates the area of a square.
+
+        Returns:
+            int: the area of the square.
+        """
+        return self.__size ** 2

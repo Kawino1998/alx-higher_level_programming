@@ -1,72 +1,175 @@
+# The ``1-my_list.py`` module
 ============================================
-How to use 1-my_list.txt
+How to use 1-my_list.py
 ============================================
 
-This library is very simple, since it only has one function called
- ''print_sorted()''.
+This library has one function ``print_sorted()``
 
-Numbers:
-========
-''print_sorted()'' returns the list sorted.
-:: with positives integers
-   >>> MyList = __import__('1-my_list').MyList
-   >>> my_list = MyList()
-   >>> isinstance(my_list, list)
-   True
-   >>> my_list.print_sorted()
-   []
+``print_sorted`` returns a list of integers sorted in ascending order.
 
-:: adding items in the list
-   >>> my_list.append(7)
-   >>> my_list.append(3)
-   >>> my_list.append(1)
-   >>> my_list.print_sorted()
-   [1, 3, 7]
+Importing the function:
+    >>> MyList = __import__('1-my_list').MyList
 
-:: whit zero values
-   >>> my_list.append(0)
-   >>> my_list.print_sorted()
-   [0, 1, 3, 7]
+Test if MyList is a subclass and/or instance of list.
+    >>> my_list = MyList()
+    >>> issubclass(MyList, list)
+    True
 
-:: with infinite integer
-   >>> my_list.append(int('inf'))
-   Traceback (most recent call last):
-   ValueError: invalid literal for int() with base 10: 'inf'
+    >>> my_list = MyList()
+    >>> isinstance(my_list, list)
+    True
 
-:: with negative values
-   >>> my_list.append(-15)
-   >>> my_list.print_sorted()
-   [-15, 0, 1, 3, 7]
+Test if 'print_sorted' is an attribute of class MyList.
+    >>> my_list = MyList()
+    >>> 'print_sorted' in dir(MyList)
+    True
 
-:: when repeat an element
-   >>> my_list.append(-15)
-   >>> my_list.append(0)
-   >>> my_list.append(7)
-   >>> my_list.print_sorted()
-   [-15, -15, 0, 0, 1, 3, 7, 7]
+Test a list of positive numbers.
+    >>> my_list = MyList()
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+    >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> my_list.append(5)
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
 
-:: when all elementes in the list are the same
-   >>> my_list.clear()
-   >>> my_list.append(5)
-   >>> my_list.append(5)
-   >>> my_list.append(5)
-   >>> my_list.append(5)
-   >>> my_list.append(5)
-   >>> my_list.print_sorted()
-   [5, 5, 5, 5, 5]
+Test a list of repeated numbers.
+    >>> my_list = MyList()
+    >>> my_list.append(3)
+    >>> my_list += [3]
+    >>> my_list.append(4)
+    >>> my_list.append(4)
+    >>> my_list += [4]
+    >>> my_list.print_sorted()
+    [3, 3, 4, 4, 4]
 
-:: with a max integer
-   >>> my_list.append(10000000000000000000000000000000000000000000)
-   >>> my_list.print_sorted()
-   [5, 5, 5, 5, 5, 10000000000000000000000000000000000000000000]
+Test a list of negative numbers.
+    >>> my_list = MyList()
+    >>> my_list.append(-1)
+    >>> my_list.append(-4)
+    >>> my_list.append(-2)
+    >>> my_list.append(-3)
+    >>> my_list.append(-5)
+    >>> my_list.print_sorted()
+    [-5, -4, -3, -2, -1]
 
-:: wiht None value
-   >>> my_list.append(None)
-   >>> my_list.print_sorted()
-   Traceback (most recent call last):
-   TypeError: unorderable types: NoneType() < int()
+Test a list of positive and negative numbers.
+    >>> my_list = MyList()
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+    >>> my_list.append(-2)
+    >>> my_list.append(3)
+    >>> my_list.append(-5)
+    >>> my_list.print_sorted()
+    [-5, -2, 1, 3, 4]
 
-:: wiht NULL value
-   >>> my_list.append(NULL)
-   Traceback (most recent call last):
-   NameError: name 'NULL' is not defined
+Test a list containing only one number.
+    >>> my_list = MyList()
+    >>> my_list.append(8)
+    >>> my_list.print_sorted()
+    [8]
+
+    >>> my_list = MyList()
+    >>> my_list += [3]
+    >>> my_list.print_sorted()
+    [3]
+
+Test a list of positive string numbers.
+    >>> my_list = MyList()
+    >>> my_list.append("1")
+    >>> my_list.append("4")
+    >>> my_list.append("2")
+    >>> my_list.append("3")
+    >>> my_list.append("5")
+    >>> my_list.print_sorted()
+    ['1', '2', '3', '4', '5']
+
+Test a list of negative string numbers.
+    >>> my_list = MyList()
+    >>> my_list.append("-1")
+    >>> my_list.append("-4")
+    >>> my_list.append("-2")
+    >>> my_list.append("-3")
+    >>> my_list.append("-5")
+    >>> my_list.print_sorted()
+    ['-1', '-2', '-3', '-4', '-5']
+
+Test a list of positive and negative string numbers.
+    >>> my_list = MyList()
+    >>> my_list.append("-1")
+    >>> my_list.append("4")
+    >>> my_list.append("-2")
+    >>> my_list.append("3")
+    >>> my_list.append("-5")
+    >>> my_list.print_sorted()
+    ['-1', '-2', '-5', '3', '4']
+
+Test a list of positive characters.
+    >>> my_list = MyList()
+    >>> my_list.append('j')
+    >>> my_list.append('c')
+    >>> my_list.append('z')
+    >>> my_list.append('g')
+    >>> my_list.append('a')
+    >>> my_list.print_sorted()
+    ['a', 'c', 'g', 'j', 'z']
+
+Test a list of negative characters.
+    >>> my_list = MyList()
+    >>> my_list.append('-j')
+    >>> my_list.append('-c')
+    >>> my_list.append('-z')
+    >>> my_list.append('-g')
+    >>> my_list.append('-a')
+    >>> my_list.print_sorted()
+    ['-a', '-c', '-g', '-j', '-z']
+
+Test a list of positive and negative characters.
+    >>> my_list = MyList()
+    >>> my_list.append('j')
+    >>> my_list.append('-c')
+    >>> my_list.append('z')
+    >>> my_list.append('-g')
+    >>> my_list.append('-a')
+    >>> my_list.print_sorted()
+    ['-a', '-c', '-g', 'j', 'z']
+
+Test an empty list.
+    >>> my_list = MyList()
+    >>> my_list.print_sorted()
+    []
+
+Passing more than one argument to sort method.
+    >>> my_list = MyList()
+    >>> my_list.print_sorted([1, 2])
+    Traceback (most recent call last):
+    	...
+    TypeError: print_sorted() takes 1 positional argument but 2 were given
+
+    >>> my_list = MyList()
+    >>> my_list.print_sorted([1, 2], [3, 4])
+    Traceback (most recent call last):
+    	...
+    TypeError: print_sorted() takes 1 positional argument but 3 were given
+
+Test the type of the print_sorted method.
+    >>> my_list = MyList()
+    >>> type(my_list.print_sorted)
+    <class 'method'>
+
+Test to see the printable string.
+    >>> my_list = MyList()
+    >>> my_list.append(7)
+    >>> print(my_list)
+    [7]
+
+Test to see if print_sorted() returns a new list.
+    >>> my_list = MyList()
+    >>> my_list.append(7)
+    >>> my_list.append(1)
+    >>> my_list.append(2)
+    >>> my_list.print_sorted()
+    [1, 2, 7]
+    >>> my_list
+    [7, 1, 2]

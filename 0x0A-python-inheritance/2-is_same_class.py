@@ -1,11 +1,16 @@
 #!/usr/bin/python3
-"""
-Author: Jeremy
-================================
-module with method is_same_class
-================================
-"""
+"""Defines a function is_same_class()"""
+
 
 def is_same_class(obj, a_class):
-    """Returns True if obj is an object of class a_class"""
-    return type(obj) is a_class
+    """Returns True if the object is exactly an instance of the,
+    specified class ; otherwise False
+
+    Args:
+        obj (a_class): object to check type.
+        a_class (type): type of type to check.
+
+    Returns:
+        boolean: True or False
+    """
+    return type(obj) == a_class
